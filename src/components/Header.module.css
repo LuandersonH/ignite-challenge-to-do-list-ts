@@ -1,0 +1,13 @@
+.HeaderContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 90rem;
+    height: 12.5rem;
+    background: var(--gray-700);
+}
+
+.LogoHeader {
+    width: 7.875rem;
+    height: 3rem;
+}

@@ -1,0 +1,21 @@
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: var(--gray-600);
+    color: var(--gray-300);
+    -webkit-font-smoothing: antialiased; 
+    margin: 0px auto;
+    font-family: 'Roboto', 'serif';
+}
+
+.toDoListMain {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+
+
