@@ -26,6 +26,10 @@
     background: var(--gray-400);
 }
 
+.TasksCountTextPurple {
+    color: var(--purple);
+}
+
 .TasksArea {
     display: flex;
     align-items: center;
@@ -35,7 +39,11 @@
     color: var(--gray-300);
     height: 15.25rem;
     padding: 64px 24px;
+
+    border-top: 1px solid var(--gray-400);
+    border-radius: 0.5rem;
 }
+
 
 .TasksAreaText {
     display: flex;
