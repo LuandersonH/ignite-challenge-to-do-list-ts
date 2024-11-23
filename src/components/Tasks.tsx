@@ -1,46 +1,97 @@
-import { ClipboardText } from 'phosphor-react';
-import styles from './Tasks.module.css';
-// import { useState } from 'react';
-import { CreatedTasks } from './CreatedTasks';
+import { CheckCircle, Circle, ClipboardText } from "phosphor-react";
+import styles from "./Tasks.module.css";
+import { useState } from "react";
+import { CreatedTasks } from "./CreatedTasks";
+import { v4 as uuid } from "uuid";
+import { AddTask } from "./AddTask";
 
-
-function noTasksContent() {
-    return (
-        <div className={styles.TasksArea}>
-        <div className={styles.TasksAreaText}>
-            <p><ClipboardText size={56}/></p>
-            <strong>Você ainda não tem tarefas cadastradas</strong>
-            <p>Crie tarefas e organize seus itens a fazer</p>
-        </div>
-        </div>
-    )
+export interface Task {
+  key: string;
+  finished: boolean;
+  description: string;
 }
 
-// function teste() {
-//     return (
-//         setTasksState("cu")
-//     )
-// }
-
 export function Tasks() {
-    
-    return (
-        <div className={styles.TasksContainer}>
-            <div className={styles.TasksCount}>
-                <p>
-                    Tarefas criadas 
-                    <span>0</span>
-                </p>
-                <p className={styles.TasksCountTextPurple}>
-                    Concluídas 
-                    <span>0 de 5</span>
-                </p>
-            </div>
-            <div className={styles.TasksArea}>
-                {noTasksContent()}
-                <CreatedTasks/>
-            </div>
+  const [tasks, setTasks] = useState([
+    {
+      key: uuid(),
+      finished: false,
+      description: "tarefa criada exatamente aqui",
+    },
+    {
+      key: uuid(),
+      finished: false,
+      description: "tarefa 2",
+    },
+    {
+      key: uuid(),
+      finished: false,
+      description:
+        "tarefa 3 Lorem, ipsum dolor sit amet consectetur adipisicing elit. Deleniti eveniet assumenda quas fuga tempore consequatur dicta quidem cupiditate illum accusamus excepturi non, explicabo est pariatur omnis, dignissimos inventore, ratione iure?",
+    },
+  ]);
 
+  function addTask(task: Task) {
+    setTasks((prev) => {
+      return [...prev, task];
+    });
+  }
+
+  const updateFinished = (isFinished: boolean, tarefa: Task) => {
+    const _tasks = JSON.parse(JSON.stringify(tasks));
+
+    //pega a taks para atualizar
+    const taskToUpdate = _tasks.filter((t: Task) => t.key === tarefa.key)[0];
+    taskToUpdate.finished = isFinished;
+
+    //pega a index da task
+    const taskIndex = _tasks.findIndex((t: Task) => t.key === tarefa.key);
+
+    //deleta a task pelo index
+    _tasks.splice(taskIndex, 1);
+
+    //adiciona a task no index
+    _tasks.splice(taskIndex, 0, taskToUpdate);
+
+    setTasks(_tasks);
+  };
+
+  const deleteTask = (tarefa: Task) => {
+    const _tasks = JSON.parse(JSON.stringify(tasks));
+
+    //pega a index da task
+    const taskIndex = _tasks.findIndex((t: Task) => t.key === tarefa.key);
+
+    //deleta a task pelo index
+    _tasks.splice(taskIndex, 1);
+
+    setTasks(_tasks);
+  };
+
+  return (
+    <div>
+      <AddTask addTask={addTask}/>
+      <div className={styles.TasksContainer}>
+        <div className={styles.TasksCount}>
+          <p>
+            Tarefas criadas
+            <span>{tasks.length}</span>
+          </p>
+          <p className={styles.TasksCountTextPurple}>
+            Concluídas
+            <span>{tasks.filter((t) => t.finished).length}</span>
+          </p>
         </div>
-    )
+        <div className={styles.TasksArea}>
+          <div className={styles.TasksAreaText}>
+            <CreatedTasks
+              tasks={tasks}
+              updateFinished={updateFinished}
+              deleteTask={deleteTask}
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 }

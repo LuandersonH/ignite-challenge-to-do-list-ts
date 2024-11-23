@@ -1,16 +1,14 @@
 import { Header } from './components/Header.tsx';
-import { AddTask } from './components/AddTask.tsx'; 
 import { Tasks } from './components/Tasks.tsx'; 
 
-
 import './app.css'
+import { AddTask } from './components/AddTask.tsx';
 
 export function App() {
   return (
       <div className='toDoListMain'>
          <Header/>
-         <AddTask/>
-         <Tasks />
+         <Tasks/>
       </div>
   )
 }

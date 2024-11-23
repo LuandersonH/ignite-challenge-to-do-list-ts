@@ -1,3 +1,60 @@
-.CreatedTasksContainer {
-    color: white;
+.containerTasks {
+    padding-top: 1.5rem;
+}
+
+.containerCreatedTasksCards {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    
+    gap: 0.75rem;
+}
+
+.CreatedTasksCards {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: center;
+    padding: 1rem;
+    background-color: red;
+    display: flex;
+    gap: 0.75rem;
+    border-radius: 0.8rem;
+    background-color: var(--gray-500);
+    color: var(--gray-100);
+    text-align: justify;
+    width: 46rem;
+}
+
+.notCheckedTask {
+    color: var(--blue);
+}
+
+.notCheckedTask:hover {
+    cursor: pointer;
+    color: var(--blue-dark);
+}
+
+.checkedTask {
+    color: var(--purple);
+}
+
+.checkedTask:hover {
+    color: var(--purple-dark);
+    cursor: pointer;
+}
+
+.descriptionTasks{
+    text-decoration: none;
+}
+
+.descriptionTasksCheck{
+    color: var(--gray-300);
+    text-decoration: line-through;
+}
+
+.deleteTasksIcon:hover {
+    cursor: pointer;
+    color: var(--danger);
 }

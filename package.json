@@ -10,10 +10,12 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "crypto": "^1.0.1",
     "ignite-challenge-to-do-list-ts": "file:",
     "phosphor-react": "^1.4.1",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "uuid": "^11.0.3"
   },
   "devDependencies": {
     "@eslint/js": "^9.13.0",
