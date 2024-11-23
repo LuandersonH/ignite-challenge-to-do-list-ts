@@ -1,6 +1,6 @@
 import { ChangeEvent, useState } from "react";
 import styles from "./AddTask.module.css";
-import { ClipboardText, PlusCircle } from "phosphor-react";
+import { PlusCircle } from "phosphor-react";
 import { v4 as uuid } from "uuid";
 
 interface Props {
@@ -31,25 +31,23 @@ export function AddTask({ addTask }: Props) {
     setNewContentTask(event.target.value);
   }
 
-
-    return (
-      <div className={styles.addTaskContainer}>
-        <input
-          type="text"
-          name="contentText"
-          value={newContentTask}
-          placeholder={placeholder}
-          onChange={handleNewContentTask}
-          onFocus={() => setPlaceholder("Descrição da tarefa")}
-          onBlur={() => setPlaceholder("Adicione uma nova tarefa")}
-        />
-        <button onClick={addContentTask} title="Criar task">
-          <span>Criar </span>
-          <span>
-            <PlusCircle size={16} />
-          </span>
-        </button>
-      </div>
-    );
-  }
-
+  return (
+    <div className={styles.addTaskContainer}>
+      <input
+        type="text"
+        name="contentText"
+        value={newContentTask}
+        placeholder={placeholder}
+        onChange={handleNewContentTask}
+        onFocus={() => setPlaceholder("Descrição da tarefa")}
+        onBlur={() => setPlaceholder("Adicione uma nova tarefa")}
+      />
+      <button onClick={addContentTask} title="Criar task">
+        <span>Criar </span>
+        <span>
+          <PlusCircle size={16} />
+        </span>
+      </button>
+    </div>
+  );
+}

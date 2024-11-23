@@ -1,4 +1,3 @@
-import { CheckCircle, Circle, ClipboardText } from "phosphor-react";
 import styles from "./Tasks.module.css";
 import { useState } from "react";
 import { CreatedTasks } from "./CreatedTasks";
@@ -70,7 +69,7 @@ export function Tasks() {
 
   return (
     <div>
-      <AddTask addTask={addTask}/>
+      <AddTask addTask={addTask} />
       <div className={styles.TasksContainer}>
         <div className={styles.TasksCount}>
           <p>
