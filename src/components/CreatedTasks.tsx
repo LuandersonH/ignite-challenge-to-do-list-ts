@@ -56,7 +56,7 @@ export function CreatedTasks({ tasks, updateFinished, deleteTask }: Props) {
           ))}
         </div>
       ) : (
-        <div>
+        <div className={styles.emptyTasks}>
           <p>
             <ClipboardText size={56} />
           </p>

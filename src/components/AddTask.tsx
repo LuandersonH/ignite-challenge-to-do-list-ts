@@ -13,18 +13,19 @@ export function AddTask({ addTask }: Props) {
   const [newContentTask, setNewContentTask] = useState("");
 
   function addContentTask() {
-    const textValue = newContentTask;
-    console.log(textValue);
-
+    const textValue = newContentTask.trim();
+    
     const task = {
       key: uuid(),
       finished: false,
       description: textValue,
     };
+    
 
-    addTask(task);
-
-    setNewContentTask("");
+    textValue.length > 0
+      ? (addTask(task), setNewContentTask(""))
+      : alert("Adicione uma descrição à tarefa antes de criar."), setNewContentTask("");
+      
   }
 
   function handleNewContentTask(event: ChangeEvent<HTMLInputElement>) {
@@ -36,6 +37,7 @@ export function AddTask({ addTask }: Props) {
       <input
         type="text"
         name="contentText"
+        required
         value={newContentTask}
         placeholder={placeholder}
         onChange={handleNewContentTask}

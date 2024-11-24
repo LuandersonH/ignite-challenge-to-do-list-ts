@@ -32,6 +32,11 @@
     color: var(--gray-100);
 }
 
+.addTaskContainer > button:focus {
+    color: var(--gray-100);
+    border: 1px solid var(--purple-dark);
+    outline: none;
+}
 
 .addTaskContainer > button {
     display: flex; 
@@ -47,7 +52,8 @@
     border-radius: 0.5rem;
     background: var(--blue-dark);
     color: var(--gray-100);
-
+    border: 1px solid var(--gray-700);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 .addTaskContainer > button > span {
@@ -58,4 +64,5 @@
 
 .addTaskContainer > button:hover {
     background: var(--blue);
+    cursor: pointer;
 }

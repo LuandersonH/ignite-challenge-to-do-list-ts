@@ -7,7 +7,6 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    
     gap: 0.75rem;
 }
 
@@ -17,7 +16,6 @@
     justify-content: space-between;
     flex-direction: center;
     padding: 1rem;
-    background-color: red;
     display: flex;
     gap: 0.75rem;
     border-radius: 0.8rem;
@@ -57,4 +55,11 @@
 .deleteTasksIcon:hover {
     cursor: pointer;
     color: var(--danger);
+}
+
+.emptyTasks {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }

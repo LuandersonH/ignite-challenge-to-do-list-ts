@@ -11,24 +11,7 @@ export interface Task {
 }
 
 export function Tasks() {
-  const [tasks, setTasks] = useState([
-    {
-      key: uuid(),
-      finished: false,
-      description: "tarefa criada exatamente aqui",
-    },
-    {
-      key: uuid(),
-      finished: false,
-      description: "tarefa 2",
-    },
-    {
-      key: uuid(),
-      finished: false,
-      description:
-        "tarefa 3 Lorem, ipsum dolor sit amet consectetur adipisicing elit. Deleniti eveniet assumenda quas fuga tempore consequatur dicta quidem cupiditate illum accusamus excepturi non, explicabo est pariatur omnis, dignissimos inventore, ratione iure?",
-    },
-  ]);
+  const [tasks, setTasks] = useState<Task[]>([]);
 
   function addTask(task: Task) {
     setTasks((prev) => {
@@ -73,12 +56,14 @@ export function Tasks() {
       <div className={styles.TasksContainer}>
         <div className={styles.TasksCount}>
           <p>
-            Tarefas criadas
+            Tarefas criadas:
             <span>{tasks.length}</span>
           </p>
           <p className={styles.TasksCountTextPurple}>
-            Concluídas
-            <span>{tasks.filter((t) => t.finished).length}</span>
+            Concluídas:
+            <span>
+              {tasks.filter((t) => t.finished).length} de {tasks.length}
+            </span>
           </p>
         </div>
         <div className={styles.TasksArea}>
