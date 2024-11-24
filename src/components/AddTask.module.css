@@ -2,10 +2,27 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    justify-items: center;
     width: 46rem;
     height: 3.375rem;
     gap: 0 0.625rem;
     margin-top: -1.6875rem;
+}
+
+@media only screen and (max-width: 1440px) {
+    .addTaskContainer {
+        max-width: 80vw;
+        padding: 0;
+        margin: -24px auto;
+    }
+
+}
+
+@media only screen and (max-width: 1440px) {
+    .addTaskContainer > * {
+        max-width: 80vw;
+        padding: 0;
+    }
 }
 
 .addTaskContainer > input[type=text] {
@@ -17,7 +34,6 @@
     color: var(--gray-300);
 
     border-radius: 0.5rem;
-    
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     -webkit-text-stroke: 1px outside #000000;
 }

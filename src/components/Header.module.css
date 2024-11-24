@@ -7,6 +7,13 @@
     background: var(--gray-700);
 }
 
+@media only screen and (max-width: 1440px) {
+    .HeaderContainer {
+        min-width: 100vw;
+        padding: 0;
+    }
+}
+
 .LogoHeader {
     width: 7.875rem;
     height: 3rem;

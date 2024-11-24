@@ -1,6 +1,27 @@
 .containerTasks {
     padding-top: 1.5rem;
+    text-align: center;
 }
+
+@media only screen and (max-width: 1440px) {
+    .containerTasks {
+        max-width: 90vw;
+        padding: 0;
+    }
+
+    .CreatedTasksCards {
+        max-width: 90vw;
+    }
+}
+
+@media only screen and (max-width: 1440px) {
+    .containerTasks > * {
+        max-width: 90vw;
+        padding: 0;
+        
+    }
+}
+
 
 .containerCreatedTasksCards {
     display: flex;
@@ -45,11 +66,15 @@
 
 .descriptionTasks{
     text-decoration: none;
+    overflow: hidden;
+    word-wrap: break-word;
 }
 
 .descriptionTasksCheck{
     color: var(--gray-300);
     text-decoration: line-through;
+    overflow: hidden;
+    word-wrap: break-word;
 }
 
 .deleteTasksIcon:hover {
